@@ -24,8 +24,6 @@ export interface Options {
    * - [Webhook Site](https://webhook.site/)
    */
   debugEndpoints: string[];
-  /** Exclude routes by endpoint  */
-  excludeRoutes: string[];
   /** Add your sensitive fields to mask here */
   maskValues: (string | number)[];
   /** Set to development or testing to halt monitoring */
@@ -44,7 +42,6 @@ interface Payload {
  */
 export class TreblleExpress {
   private options: Options = {
-    excludeRoutes: [],
     maskValues: [...defaultSensitiveValues],
     environment: 'testing',
     debugEndpoints: [], // You can use a free online webhook service for this
@@ -83,7 +80,6 @@ export class TreblleExpress {
         environment: config.environment ?? this.options.environment,
         debugEndpoints: [...this.options.debugEndpoints, ...(config.debugEndpoints ?? this.options.debugEndpoints)],
         maskValues: [...this.options.maskValues, ...(config.maskValues ?? this.options.maskValues)],
-        excludeRoutes: [...this.options.excludeRoutes, ...(config.excludeRoutes ?? this.options.excludeRoutes)],
       };
 
       // Update the Treblle instance with the new configuration
