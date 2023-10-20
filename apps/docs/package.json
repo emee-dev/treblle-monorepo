@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Treblle documentation for express SDK",
   "scripts": {
-    "dev": "next dev",
+    "docs:dev": "next dev",
     "build": "rm -rf build && next build",
     "start": "next start"
   },
