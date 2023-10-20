@@ -1,0 +1,150 @@
+---
+title: Introduction to Treblle 🚀
+description: How to start using treblle express in your express server
+author: Emmanuel Ajike
+date: October 19, 2023
+---
+
+# Treblle Express Integration Documentation
+
+## Introduction
+
+Thank you for choosing Treblle Express for monitoring API best practices and inspecting request and response bodies in your Express.js application. This documentation will guide you through the process of integrating Treblle Express into your project.
+
+### Requirements
+
+- Node.js and npm installed on your machine.
+- An existing Express.js application.
+
+## Installation
+
+Install Treblle Express using pnpm:
+
+```bash
+pnpm install treblle-express
+```
+
+## Integration Steps
+
+### 1. Import Dependencies
+
+Ensure you have the required dependencies installed:
+
+```javascript
+import express from "express";
+import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
+import cors from "cors";
+import { TreblleExpress } from "treblle-express";
+```
+
+### 2. Create Express App
+
+Initialize your Express application:
+
+```javascript
+const app = express();
+```
+
+### 3. Configure Middleware
+
+Set up necessary middleware for your Express app:
+
+```javascript
+app.use(cors());
+app.options("*", cors());
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
+```
+
+### 4. Import Routes
+
+Include your application routes. Adjust the path accordingly:
+
+```javascript
+import router from "./router/index.ts";
+app.use(router);
+```
+
+### 5. Initialize TreblleExpress
+
+#### 5.1 Create a .env file add add
+
+The TREBLLE_API_KEY and TREBLLE_PROJECT_ID are required and an error will be thrown if unspecified
+
+```bash
+TREBLLE_API_KEY=
+TREBLLE_PROJECT_ID=
+```
+
+Create an instance of TreblleExpress, passing your Express app and configuration options:
+
+```javascript
+const Treblle = new TreblleExpress(app, {
+	apiKey: process.env.TREBLLE_API_KEY,
+	projectId: process.env.TREBLLE_PROJECT_ID,
+})
+	.config({
+		environment: "development", // Possible values: "production", "development", "testing"
+		// debugEndpoints: ['https://webhook.site/your-webhook-id'],
+		excludeRoutes: [],
+		maskValues: ["email", "name"],
+		logError: true,
+	})
+	.listen();
+```
+
+Note: All values in the configuration are optional, and default values will be used if not provided.
+
+- `environment`: The environment in which your application is running ("production", "development", "testing"). Default is "testing," where Treblle Express won't log requests to the production Treblle API.
+- `debugEndpoints`: An array of endpoints to inspect the payloads sent by Treblle Express. Useful for debugging.
+- `maskValues`: An array of sensitive values (e.g., passwords, emails) to be masked in logs.
+- `logError`: Set to `true` to log errors.
+
+**Note:** The `listen` method must be called to start monitoring. Ensure that you include this method in your integration as shown in the example:
+
+### 6. Error Handling
+
+Treblle Express provides a built-in async error handler that you can use to capture errors in your Express application. This handler is especially useful for capturing unhandled exceptions and logging relevant information. Here's how you can integrate it into your project:
+
+#### 6.1. Add the Error Handler Middleware
+
+Insert the error handler middleware into your Express application, typically after other middleware and route definitions:
+
+```javascript
+// Add other middleware and route definitions here
+
+// Use the Treblle Express error handler
+app.get(
+	"/",
+	Trebble.errorHandler(async (req: Request, res: Response) => {
+		// route handling here
+		res.send({ status: "This is the base endpoint", password: "sammy" });
+	})
+);
+```
+
+The `errorHandler` function takes a `async fn(req, res, next) => {}` as a parameter, which should handle errors and return a `closure` which executes your request handler.
+
+The error handler logs relevant information, including the source file, error type, message, file, and line number on the Treblle dashboard. This information is valuable for debugging and troubleshooting.
+
+Now, your Express application is equipped with a robust error handling mechanism provided by Treblle Express.
+
+For more details and advanced configurations, refer to the [Treblle Express documentation](https://docs.treblle.com/en/integrations).
+
+### 7. Known Issues
+
+While using Treblle Express, be aware of the following known issues:
+
+- Issue 1: Multiple instances of `TreblleExpress` is not recommended, as requests will most likely not be captured. Declare the `TreblleExpress` instance at the top most level of your express server.
+
+## Support
+
+If you encounter any issues or have questions, feel free to reach out to our [support team](https://treblle.com). We're here to help!
+
+Happy coding! 🚀
+
+```
+
+```

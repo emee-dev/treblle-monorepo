@@ -1,0 +1,27 @@
+{
+  "name": "treblle-express-docs",
+  "version": "0.0.0",
+  "description": "Treblle documentation for express SDK",
+  "scripts": {
+    "dev": "next dev",
+    "build": "rm -rf build && next build",
+    "start": "next start"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/treblle-express.git"
+  },
+  "homepage": "https://github.com/shuding/nextra-docs-template#readme",
+  "dependencies": {
+    "next": "latest",
+    "nextra": "latest",
+    "nextra-theme-docs": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "18.11.10",
+    "typescript": "^4.9.3"
+  }
+}

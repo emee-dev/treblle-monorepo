@@ -1,0 +1,10 @@
+{
+  "signal": "SIGTERM",
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "ts",
+  "exec": "ts-node --esm ./src/server.ts",
+  "ignore": [".git", "node_modules", "dist"],
+  "watch": ["./src", "tsconfig.ts"]
+}
