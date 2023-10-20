@@ -71,6 +71,12 @@ export const sendPayloadToTreblle = async ({
   trebllePayload,
   treblleBaseUrls,
 }: SendPayloadProp) => {
+  if (environment === 'production' && debugEndpoints.length > 0) {
+    if (logError) {
+      console.log('Debug endpoints are not allowed in production');
+    }
+  }
+
   /** Set the treblleBaseUrls if in production environment */
   if (environment === 'production' && debugEndpoints.length === 0) {
     const roundRobinInstance = new RoundRobinBalancer(treblleBaseUrls);
