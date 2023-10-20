@@ -71,7 +71,7 @@ This means data masking is super fast and happens on a programming level before 
 
 <!-- Installation instruction for the platform goes here -->
 
-> See the [docs](https://treblle-express-docs.vercel.app/) for this SDK to learn more.
+> Click to see the [documentation](https://treblle-express-docs.vercel.app/) for this SDK to learn more.
 
 ## Available SDKs
 
