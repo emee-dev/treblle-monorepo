@@ -1,6 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
+    "docs:dev": {},
     "build": {
       "dependsOn": ["^build"]
     },
