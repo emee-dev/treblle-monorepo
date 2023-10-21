@@ -2,7 +2,7 @@
 # Hackathon Project Guide
 
 
-# Project Setup and SDK Usage Guide
+## Project Setup and SDK Usage Guide
 
 Welcome to my hackathon project! In this guide, I'll walk you through the steps to clone and set up my monorepo, run necessary scripts, and test the SDK I've built using TurboRepo.
 
