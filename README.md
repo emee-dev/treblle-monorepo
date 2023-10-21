@@ -1,6 +1,6 @@
----
-title: Hackathon Project Guide
----
+
+# Hackathon Project Guide
+
 
 # Project Setup and SDK Usage Guide
 
