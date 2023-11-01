@@ -40,7 +40,7 @@ export const axiosRequest = async ({ endpoint, API_KEY, payload, logError }: Axi
 
     // Check if the status code is in the response is not true
     if (!responseData.status) {
-      throw new TreblleRequestError(responseData.message, responseData.status);
+      throw new TreblleRequestError(responseData.message ?? 'No response message', responseData.status ?? 'No response status');
     }
 
     // Uncomment the following block if you want to log success messages
@@ -53,9 +53,7 @@ export const axiosRequest = async ({ endpoint, API_KEY, payload, logError }: Axi
       if (axios.isAxiosError(error)) {
         const axiosError = error as AxiosError;
         console.error(`[AXIOS_ERROR]: ${axiosError.message}`);
-      }
-
-      if (error instanceof TreblleRequestError) {
+      } else if (error instanceof TreblleRequestError) {
         console.error(error);
       } else {
         console.error(`[UNHANDLED_ERROR]:`, error);
@@ -73,7 +71,7 @@ export const sendPayloadToTreblle = async ({
 }: SendPayloadProp) => {
   if (environment === 'production' && debugEndpoints.length > 0) {
     if (logError) {
-      console.log('Debug endpoints are not allowed in production');
+      console.log('[TREBLLE] Debug endpoints are not allowed in production');
     }
   }
 

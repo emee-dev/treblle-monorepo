@@ -47,7 +47,8 @@ export class TreblleExpress {
     debugEndpoints: [], // You can use a free online webhook service for this
     logError: false,
   };
-  private isOptionsSet: boolean = false;
+  private isConfigSet: boolean = false;
+  private isListening: boolean = false;
 
   /** To avoid duplicate requests, only a single instance is needed. */
   private static instance: TreblleExpress;
@@ -75,7 +76,7 @@ export class TreblleExpress {
     }
 
     try {
-      if (this.isOptionsSet) {
+      if (this.isConfigSet) {
         return this;
       }
 
@@ -89,7 +90,7 @@ export class TreblleExpress {
 
       // Update the Treblle instance with the new configuration
       this.options = newConfig;
-      this.isOptionsSet = true;
+      this.isConfigSet = true;
 
       // // Return the current Treblle instance for method chaining
       return this;
@@ -109,6 +110,10 @@ export class TreblleExpress {
    * @returns {TreblleExpress} - The current instance for method chaining.
    */
   listen(): TreblleExpress {
+    if (this.isListening) {
+      return this;
+    }
+
     this.app.use(async (req: Request, res: Response, next: NextFunction) => {
       try {
         // Only serialize payloads in production or testing environment
@@ -118,6 +123,9 @@ export class TreblleExpress {
 
         // Continue with the next middleware in the stack
         next();
+
+        // Return the current instance for method chaining
+        // return this;
       } catch (error: any) {
         // Log any errors during Treblle listening, if logError option is true
         if (this.options.logError) {
@@ -126,6 +134,7 @@ export class TreblleExpress {
         }
       }
     });
+    this.isListening = true;
 
     // Return the current instance for method chaining
     return this;
