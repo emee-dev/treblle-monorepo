@@ -3,12 +3,11 @@ import express, { NextFunction, Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import { TreblleExpress } from 'treblle-express';
 
 const app = express();
 
 import router from './router/index.ts';
-
-import { TreblleExpress } from 'treblle-express';
 
 app.use(cors());
 

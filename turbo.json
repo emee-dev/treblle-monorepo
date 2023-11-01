@@ -4,7 +4,7 @@
   "pipeline": {
     "docs:dev": {},
     "build": {
-      "dependsOn": ["^build"]
+      "dependsOn": ["lint", "^build"]
     },
     "lint": {},
     "dev": {

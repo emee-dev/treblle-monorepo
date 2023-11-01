@@ -47,6 +47,7 @@ export class TreblleExpress {
     debugEndpoints: [], // You can use a free online webhook service for this
     logError: false,
   };
+  private isOptionsSet: boolean = false;
 
   /** To avoid duplicate requests, only a single instance is needed. */
   private static instance: TreblleExpress;
@@ -67,32 +68,39 @@ export class TreblleExpress {
     this.app = app;
   }
 
-  config(config: Partial<Options>): TreblleExpress {
+  config(args: Partial<Options>): TreblleExpress {
     // Ensure a valid configuration is provided
-    if (!config) {
+    if (!args) {
       throw new Error('Please specify the config options for Treblle');
     }
 
     try {
+      if (this.isOptionsSet) {
+        return this;
+      }
+
       // Merge the provided configuration with the existing configuration
       let newConfig: Options = {
-        logError: config.logError ?? this.options.logError,
-        environment: config.environment ?? this.options.environment,
-        debugEndpoints: [...this.options.debugEndpoints, ...(config.debugEndpoints ?? this.options.debugEndpoints)],
-        maskValues: [...this.options.maskValues, ...(config.maskValues ?? this.options.maskValues)],
+        logError: args.logError ?? this.options.logError,
+        environment: args.environment ?? this.options.environment,
+        debugEndpoints: [...this.options.debugEndpoints, ...(args.debugEndpoints ?? this.options.debugEndpoints)],
+        maskValues: [...this.options.maskValues, ...(args.maskValues ?? this.options.maskValues)],
       };
 
       // Update the Treblle instance with the new configuration
       this.options = newConfig;
+      this.isOptionsSet = true;
+
+      // // Return the current Treblle instance for method chaining
+      return this;
     } catch (error: any) {
       // Log errors during Treblle configuration if logError option is true
       if (this.options.logError) {
         console.error('[Treblle Config]', error);
       }
-    }
 
-    // Return the current Treblle instance for method chaining
-    return this;
+      return this;
+    }
   }
 
   /**
