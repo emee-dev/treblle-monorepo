@@ -12,5 +12,6 @@ server/dist
 public/dist
 
 .next
+build
 example.ts
 dist
