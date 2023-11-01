@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rm -rf dist && tsc --project ./",
     "start": "cross-env NODE_ENV=production node ./build/server.ts",
-    "dev": "cross-env NODE_ENV=development nodemon"
+    "dev": "cross-env dotenv -e .env.development nodemon"
   },
   "keywords": [],
   "author": "Emmanuel Ajike",
