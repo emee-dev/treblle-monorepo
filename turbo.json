@@ -6,6 +6,7 @@
       "dependsOn": ["lint", "^build"]
     },
     "lint": {},
+    "start": {},
     "dev": {
       "dotEnv": [".env.development.local", ".env.development", ".env.local", ".env"],
       "dependsOn": ["build"],
