@@ -13,5 +13,5 @@ module.exports = withNextra({
       // },
     ],
   },
-  distDir: 'build',
+  ignoreDuringBuilds: true,
 });
