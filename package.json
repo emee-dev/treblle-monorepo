@@ -6,6 +6,9 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
+  "dependencies": {
+    "dotenv-cli": "^7.3.0"
+  },
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
@@ -16,8 +19,5 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ],
-  "dependencies": {
-    "dotenv-cli": "^7.3.0"
-  }
+  ]
 }
