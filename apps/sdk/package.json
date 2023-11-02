@@ -9,6 +9,13 @@
     "dist",
     "package.json"
   ],
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "scripts": {
     "build": "rm -rf dist && tsup ./src --format cjs,esm --dts",
     "lint": "tsc",
