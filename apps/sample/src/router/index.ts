@@ -1,5 +1,5 @@
 import { Request, Response, Router } from 'express';
-import { TreblleExpress } from 'treblle-express';
+import { TreblleExpress } from '@emee/treblle-express';
 
 const router = Router();
 

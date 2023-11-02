@@ -3,7 +3,7 @@ import express, { NextFunction, Request, Response } from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-import { TreblleExpress } from 'treblle-express';
+import { TreblleExpress } from '@emee/treblle-express';
 
 const app = express();
 

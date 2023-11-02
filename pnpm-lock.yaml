@@ -55,6 +55,9 @@ importers:
 
   apps/sample:
     dependencies:
+      '@emee/treblle-express':
+        specifier: workspace:*
+        version: link:../sdk
       body-parser:
         specifier: ^1.20.2
         version: 1.20.2
@@ -79,9 +82,6 @@ importers:
       helmet:
         specifier: ^7.0.0
         version: 7.0.0
-      treblle-express:
-        specifier: workspace:*
-        version: link:../sdk
     devDependencies:
       '@types/axios':
         specifier: ^0.14.0
