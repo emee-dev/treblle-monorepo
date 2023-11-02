@@ -4,7 +4,7 @@
   "description": "Treblle documentation for express SDK",
   "scripts": {
     "docs:dev": "next dev",
-    "build": "next build",
+    "build": "rm -rf build && next build",
     "start": "next start"
   },
   "license": "MIT",
