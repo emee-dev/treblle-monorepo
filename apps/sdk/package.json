@@ -1,5 +1,5 @@
 {
-  "name": "treblle-express",
+  "name": "@emee/treblle-express",
   "version": "0.0.1",
   "description": "Express Sdk for Treblle api monitoring and observability",
   "publishConfig": {
