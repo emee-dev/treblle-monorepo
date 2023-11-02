@@ -1,7 +1,10 @@
 {
   "name": "treblle-express",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Express Sdk for Treblle api monitoring and observability",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",

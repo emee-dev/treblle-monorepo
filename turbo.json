@@ -7,6 +7,7 @@
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {},
+    "test": {},
     "start": {},
     "dev": {
       "dotEnv": [".env.development.local", ".env.development", ".env.local", ".env"],
