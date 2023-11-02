@@ -1,6 +1,7 @@
 {
   "name": "sample",
   "version": "0.0.0",
+  "private": true,
   "description": "sample project using the treblle-express sdk",
   "main": "./build/server.js",
   "scripts": {
