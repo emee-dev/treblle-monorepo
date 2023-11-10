@@ -55,7 +55,7 @@ importers:
 
   apps/sample:
     dependencies:
-      '@emee/treblle-express':
+      '@trythis/treblle-express':
         specifier: workspace:*
         version: link:../sdk
       body-parser:

@@ -21,7 +21,7 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "helmet": "^7.0.0",
-    "@emee/treblle-express": "workspace:*"
+    "@trythis/treblle-express": "workspace:*"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
