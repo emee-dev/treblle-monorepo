@@ -1,0 +1,6 @@
+name: CI
+on: push
+jobs:
+  Lint_and_test:
+    name: Stepup node
+    runs-on: ubuntu-latest
