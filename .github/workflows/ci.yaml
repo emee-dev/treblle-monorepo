@@ -5,8 +5,11 @@ jobs:
     name: Lint, Test and Build
     runs-on: ubuntu-latest
     steps:
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      # - name: Setup Node
+      #   uses: actions/setup-node@v3
+
+      - name: Checkout repo
+        uses: actions/checkout@v4
 
       - name: Setup pnpm
         run: npm install -g pnpm
