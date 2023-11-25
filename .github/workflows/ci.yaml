@@ -2,7 +2,7 @@ name: CI
 on: push
 jobs:
   Lint_and_test:
-    name: Stepup node
+    name: Lint, Test and Build
     runs-on: ubuntu-latest
     steps:
       - name: Setup Node
@@ -10,3 +10,9 @@ jobs:
 
       - name: Setup pnpm
         run: npm install -g pnpm
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build Sdk
+        run: turbo run build --filter @trythis/treblle-express
