@@ -4,3 +4,9 @@ jobs:
   Lint_and_test:
     name: Stepup node
     runs-on: ubuntu-latest
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v3
+
+      - name: Setup pnpm
+        run: npm install -g pnpm
