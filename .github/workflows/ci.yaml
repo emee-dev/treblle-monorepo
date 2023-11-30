@@ -2,7 +2,7 @@ name: CI
 on: push
 jobs:
   Lint_and_test:
-    name: Lint, Test and Build
+    name: CICD
     runs-on: ubuntu-latest
     steps:
       - name: Setup Node
