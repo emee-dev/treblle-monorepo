@@ -4,11 +4,11 @@
 //     private app: Express = null;
 //     private server: Listen | null = null;
 //     private ports: [3540, 6790, 3390, 6793];
-  
+
 //     constructor(app: Express) {
 //       this.app = app;
 //     }
-  
+
 //     start(cb?: Function) {
 //       try {
 //         let started = this.app.listen(this.getPort(), () => {
@@ -20,7 +20,7 @@
 //         cb(err);
 //       }
 //     }
-  
+
 //     stop(cb?: Function) {
 //       if (this.server) {
 //         this.server.closeAllConnections();
@@ -29,13 +29,13 @@
 //           if (e) {
 //             console.log(e);
 //           }
-  
+
 //           cb ? cb() : '';
 //           console.log(`Server Ended Port: ${this.getCurrentPortNumber()}`);
 //         });
 //       }
 //     }
-  
+
 //     getPort() {
 //       let portNumber = this.ports[this.currentIndex];
 //       this.currentPort = portNumber;
@@ -46,13 +46,12 @@
 //       }
 //       return portNumber;
 //     }
-  
+
 //     getCurrentPortNumber() {
 //       return this.currentPort;
 //     }
-  
+
 //     getCurrentServer() {
 //       return this.app;
 //     }
 //   }
-  
