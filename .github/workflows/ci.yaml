@@ -17,10 +17,15 @@ jobs:
           version: 8
 
       - name: Install Dependencies
-        run: pnpm install --no-frozen-lockfile --dev
+        run: pnpm install --no-frozen-lockfile
 
       - name: Install Turbo Globally
         run: pnpm install turbo --global
 
-      - name: Build Sdk
-        run: turbo run build --filter @trythis/treblle-express
+      - name: Lint
+        run: turbo run lint --filter @trythis/treblle-express
+
+      - name: Test
+        run: turbo run test --filter @trythis/treblle-express
+
+

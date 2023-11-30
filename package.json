@@ -13,12 +13,9 @@
     "turbo": "latest"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.10",
     "eslint": "^7.32.0",
     "eslint-config-custom": "*",
-    "jest": "^29.7.0",
-    "prettier": "^2.5.1",
-    "ts-jest": "^29.1.1"
+    "prettier": "^2.5.1"
   },
   "packageManager": "pnpm@8.7.6",
   "workspaces": [
