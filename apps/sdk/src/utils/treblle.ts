@@ -1,6 +1,6 @@
 import { Application, NextFunction, Request, RequestHandler, Response, Router } from 'express';
 import nodeos from 'node:os';
-import PackageJson from 'package.json';
+import PackageJson from '../../package.json';
 import StackTracey from 'stacktracey';
 import { sendPayloadToTreblle } from './axios';
 import { TreblleSchema, defaultSensitiveValues, isValidJsonString, maskBody, maskHeaders, returnQueryString } from './utils';

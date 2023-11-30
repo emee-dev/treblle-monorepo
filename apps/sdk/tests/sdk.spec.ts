@@ -1,13 +1,11 @@
 import { TreblleExpress } from '../src/index';
-import { TreblleSchema } from '../src/utils/utils';
 
 import test_server from './server';
-// import { Listen, Request, Response } from 'sample/src/type';
-import {IncomingMessage, ServerResponse} from 'http'
-import { Request, Response, NextFunction, Application, Express } from 'express';
+import { Request, Response } from 'express';
+import { IncomingMessage, Server, ServerResponse } from 'http';
+import { agent } from 'supertest';
 
 export type Listen = Server<typeof IncomingMessage, typeof ServerResponse>;
-import { agent } from 'supertest';
 
 const wait = (time: number) => {
   return new Promise((resolve) => {
@@ -125,7 +123,7 @@ describe('Treblle Express Middleware', () => {
 
     const { body } = await agent(debugServer).get('/sdk-data');
 
-    let capturedError: TreblleSchema['data']['errors'] = body.capturedServerError;
+    let capturedError = body.capturedServerError;
 
     expect(capturedError.length).toBeGreaterThan(0);
     expect(capturedError[0].source).toBeTruthy();

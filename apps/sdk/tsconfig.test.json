@@ -5,18 +5,13 @@
     "module": "commonjs",
     "moduleResolution": "node",
     // "noEmit": true,
-    // "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    // "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    // "outDir": "dist",
-    // "noImplicitAny": true,
-    "baseUrl": "."
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
   },
-  // "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "test/*"],
+  "exclude": ["node_modules"],
   "ts-node": {
     "require": ["tsconfig-paths/register"]
   }
