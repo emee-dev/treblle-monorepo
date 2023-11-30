@@ -12,12 +12,6 @@
       "persistent": true
     },
     "start": {},
-    "dev": {
-      "dotEnv": [".env.development.local", ".env.development", ".env.local", ".env"],
-      "dependsOn": ["build"],
-      "cache": false,
-      "persistent": true
-    },
     "docs:dev": {
       "cache": false,
       "persistent": true
