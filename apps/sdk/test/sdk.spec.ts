@@ -1,9 +1,10 @@
 import { TreblleExpress } from '../src/index';
 import { TreblleSchema } from '../src/utils/utils';
 
-import test_server from 'sample/src/test_server';
+import test_server from './server';
 // import { Listen, Request, Response } from 'sample/src/type';
-export { Request, Response, NextFunction, Application, Express } from 'express';
+import {IncomingMessage, ServerResponse} from 'http'
+import { Request, Response, NextFunction, Application, Express } from 'express';
 
 export type Listen = Server<typeof IncomingMessage, typeof ServerResponse>;
 import { agent } from 'supertest';

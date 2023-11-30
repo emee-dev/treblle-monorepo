@@ -17,7 +17,7 @@ jobs:
           version: 8
 
       - name: Install Dependencies
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --no-frozen-lockfile --dev
 
       - name: Install Turbo Globally
         run: pnpm install turbo --global
