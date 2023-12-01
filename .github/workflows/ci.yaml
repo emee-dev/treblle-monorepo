@@ -2,7 +2,7 @@ name: CI
 on: push
 jobs:
   Lint_and_test:
-    name: Lint, Test and Build
+    name: CICD
     runs-on: ubuntu-latest
     steps:
       - name: Setup Node
@@ -22,5 +22,10 @@ jobs:
       - name: Install Turbo Globally
         run: pnpm install turbo --global
 
-      - name: Build Sdk
-        run: turbo run build --filter @trythis/treblle-express
+      - name: Lint
+        run: turbo run lint --filter @trythis/treblle-express
+
+      - name: Test
+        run: turbo run test --filter @trythis/treblle-express
+
+

@@ -46,7 +46,7 @@ export interface TreblleSchema {
     };
     request: {
       timestamp: string;
-      ip: string;
+      ip: string | undefined;
       url: string;
       user_agent: string;
       method: string;

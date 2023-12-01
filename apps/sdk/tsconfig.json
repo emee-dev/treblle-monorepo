@@ -10,6 +10,7 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+
     "resolveJsonModule": true,
     "outDir": "dist",
     "noImplicitAny": true,
@@ -19,7 +20,7 @@
     }
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "**/*.spec.ts", "build/**", "test/*", "bin/*"],
+  "exclude": ["node_modules", "**/*.spec.ts", "build/**", "tests/*", "bin/*"],
   "ts-node": {
     "require": ["tsconfig-paths/register"]
   }

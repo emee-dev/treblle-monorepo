@@ -1,6 +1,6 @@
 import { Application, NextFunction, Request, RequestHandler, Response, Router } from 'express';
 import nodeos from 'node:os';
-import PackageJson from 'package.json';
+import PackageJson from '../../package.json';
 import StackTracey from 'stacktracey';
 import { sendPayloadToTreblle } from './axios';
 import { TreblleSchema, defaultSensitiveValues, isValidJsonString, maskBody, maskHeaders, returnQueryString } from './utils';
@@ -35,6 +35,7 @@ export interface Options {
 interface Payload {
   req: Request;
   res: Response;
+  next: NextFunction;
 }
 
 /**
@@ -56,10 +57,6 @@ export class TreblleExpress {
   private treblleBaseUrls = ['https://rocknrolla.treblle.com', 'https://punisher.treblle.com', 'https://sicario.treblle.com'];
 
   constructor(private app: Application | Router, private credentials: Credentials) {
-    if (!this.credentials.apiKey || !this.credentials.projectId) {
-      throw new Error('Treblle [API_KEY] and [PROJECT_ID] are required');
-    }
-
     // Ensure only a single instance is created
     if (TreblleExpress.instance) {
       return TreblleExpress.instance;
@@ -118,7 +115,7 @@ export class TreblleExpress {
       try {
         // Only serialize payloads in production or testing environment
         if (this.options.environment === 'production' || this.options.environment === 'testing') {
-          this.serializePayload({ req, res });
+          this.serializePayload({ req, res, next });
         }
 
         // Continue with the next middleware in the stack
@@ -185,7 +182,14 @@ export class TreblleExpress {
    * @param {Object} payload.req - The request object.
    * @param {Object} payload.res - The response object.
    */
-  private serializePayload = async ({ req, res }: Payload) => {
+  private serializePayload = async ({ req, res, next }: Payload) => {
+    if (!this.credentials.apiKey || !this.credentials.projectId) {
+      if (this.options.logError) {
+        console.warn('Treblle [API_KEY] and [PROJECT_ID] are required');
+      }
+      next();
+    }
+
     // Capture the start time for performance measurement
     const startTime = process.hrtime();
 
