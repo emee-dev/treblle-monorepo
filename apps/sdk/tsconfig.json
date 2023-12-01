@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "typeRoots": ["./src/@types/**/*", "./node_modules/@types"],
+    "typeRoots": ["./src/@types", "./node_modules/@types"],
     "target": "es2016",
     "module": "commonjs",
     "moduleResolution": "node",
@@ -10,17 +10,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-
     "resolveJsonModule": true,
     "outDir": "dist",
     "noImplicitAny": true,
-    "baseUrl": ".",
-    "paths": {
-      "@interfaces/*": ["src/interfaces/*"]
-    }
+    "baseUrl": "."
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "**/*.spec.ts", "build/**", "tests/*", "bin/*"],
+  "include": ["src/*", "tests/*"],
+  "exclude": ["node_modules", "build/**", "bin/*"],
   "ts-node": {
     "require": ["tsconfig-paths/register"]
   }
