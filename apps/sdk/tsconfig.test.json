@@ -1,10 +1,9 @@
 {
   "compilerOptions": {
-    // "typeRoots": ["./src/@types/**/*", "./node_modules/@types"],
+    "typeRoots": ["./src/@types", "./node_modules/@types"],
     "target": "es2016",
     "module": "commonjs",
     "moduleResolution": "node",
-    // "noEmit": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
@@ -12,7 +11,5 @@
     "resolveJsonModule": true
   },
   "exclude": ["node_modules"],
-  "ts-node": {
-    "require": ["tsconfig-paths/register"]
-  }
+  "include": ["tests/*"]
 }
