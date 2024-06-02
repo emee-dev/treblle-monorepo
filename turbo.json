@@ -12,7 +12,7 @@
       "persistent": true
     },
     "start": {},
-    "docs:dev": {
+    "dev": {
       "cache": false,
       "persistent": true
     }
