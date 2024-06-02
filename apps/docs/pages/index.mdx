@@ -2,10 +2,10 @@
 title: Introduction to Treblle 🚀
 description: How to start using treblle express in your express server
 author: Emmanuel Ajike
-date: November 01, 2023
+date: June 02, 2024
 ---
 
-# Treblle Express Integration Documentation
+# Treblle Express Integration Docs
 
 ## Introduction
 
@@ -21,7 +21,7 @@ Thank you for choosing Treblle Express for monitoring API best practices and ins
 Install Treblle Express using pnpm:
 
 ```bash
-pnpm install treblle-express
+pnpm install @trythis/treblle-express
 ```
 
 ## Integration Steps
@@ -35,7 +35,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-import { TreblleExpress } from 'treblle-express';
+import { TreblleExpress } from '@trythis/treblle-express';
 ```
 
 ### 2. Create Express App
@@ -66,7 +66,7 @@ Include your application routes. Adjust the path accordingly:
 import express from 'express';
 const router = express.Router();
 
-const Treblle = new TreblleExpress(router, {
+const treblle = new TreblleExpress(router, {
   apiKey: process.env.TREBLLE_API_KEY,
   projectId: process.env.TREBLLE_PROJECT_ID,
 })
@@ -83,7 +83,7 @@ const Treblle = new TreblleExpress(router, {
 
 #### 5.1 Create a .env file add the following:
 
-The TREBLLE_API_KEY and TREBLLE_PROJECT_ID are required and an error will be thrown if unspecified
+The `TREBLLE_API_KEY` and `TREBLLE_PROJECT_ID` are required and an error will be thrown if unspecified
 
 ```bash
 TREBLLE_API_KEY=
@@ -96,7 +96,7 @@ Create an instance of TreblleExpress, passing your Express app object and config
 import express from 'express';
 const app = express();
 
-const Treblle = new TreblleExpress(app, {
+const treblle = new TreblleExpress(app, {
   apiKey: process.env.TREBLLE_API_KEY,
   projectId: process.env.TREBLLE_PROJECT_ID,
 })
@@ -134,7 +134,7 @@ Insert the error handler middleware into your Express application, typically aft
 // Use the Treblle Express error handler
 app.get(
   '/',
-  Trebble.errorHandler(async (req: Request, res: Response) => {
+  treblle.errorHandler(async (req: Request, res: Response) => {
     // route handling here
     res.send({ status: 'This is the base endpoint', password: 'sammy' });
   }),
