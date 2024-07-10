@@ -1,7 +1,7 @@
 {
-  "drips": {
-    "ethereum": {
-      "ownedBy": "0x720Bab209a69263acDc2EAEB5cfc11e7819315BA"
+  "ossdonate": {
+    "celo": {
+      "ownedBy": "0x2d3f8696dC44B24f47E6173bA156FEDa32278D6C"
     }
   }
 }
